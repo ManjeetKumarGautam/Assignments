@@ -4,10 +4,8 @@ import com.example.UserManagement.DataBase.User;
 import com.example.UserManagement.Repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -26,7 +24,7 @@ public class UserService {
         for(User user:newUserList){
             userRepo.getUser().add(user);
         }
-        return "New users added";
+        return "New "+newUserList.size()+" users added";
     }
 
     // get all user.......
@@ -35,15 +33,13 @@ public class UserService {
     }
 
     // get user by id......
-    public List<User> getUserById(Integer Id){
-        List<User> filterUser=new ArrayList<>();
-
+    public User getUserById(Integer Id){
         for(User u: getAllUser()){
             if(u.getUserId().equals(Id)){
-                filterUser.add(u);
+                return u;
             }
         }
-        return  filterUser;
+        return  null;
     }
 
     // update info of user
@@ -53,18 +49,18 @@ public class UserService {
             if(u.getUserId().equals(Id)) {
                 if (str.equals("id")) {
                     u.setUserId(Integer.parseInt(val));
-                    return  "User "+Id+" id udated...";
+                    return  "User "+Id+" id updated...";
                 } else if (str.equals("name")) {
                     u.setName(val);
-                    return  "User "+Id+" name udated...";
+                    return  "User "+Id+" name updated...";
                 } else if (str.equals("userName")) {
                     u.setUserName(val);
-                    return  "User "+Id+" user name udated...";
+                    return  "User "+Id+" user name updated...";
                 } else if (str.equals("address")) {
                     u.setAddress(val);
                 } else if (str.equals("phoneNumber")) {
                     u.setPhoneNumber(val);
-                    return  "User "+Id+" phone number udated...";
+                    return  "User "+Id+" phone number updated...";
                 }
 
             }
