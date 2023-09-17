@@ -114,3 +114,4 @@ public class DataSource {
 *  Linear Search
 
 ## Project Summary
+ Restaurant play a crucial role in the modern restaurant industry by facilitating data exchange, enhancing customer experiences, and creating opportunities for innovation in food service, delivery, and reservation management and create diverse applications that provide users with valuable restaurant-related information and services.
